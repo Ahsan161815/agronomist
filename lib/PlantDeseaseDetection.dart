@@ -1,6 +1,6 @@
-import 'ImagePickerWidget.dart';
+import 'pages/pickimage/components/ImagePickerWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:agronomist/ImagePickerWidget.dart';
+import 'package:agronomist/pages/pickimage/components/ImagePickerWidget.dart';
 
 class PlantDiseaseDetection extends StatelessWidget {
   const PlantDiseaseDetection({Key? key}) : super(key: key);

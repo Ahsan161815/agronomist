@@ -1,4 +1,4 @@
-import 'ImagePickerWidget.dart';
+import 'pages/pickimage/components/ImagePickerWidget.dart';
 import 'package:flutter/material.dart';
 
 class PlantRecognition extends StatelessWidget {
@@ -17,6 +17,7 @@ class PlantRecognition extends StatelessWidget {
         title: const Text('Plant Recognition'),
       ),
       body: const ImagePickerWidget(),
+
     );
   }
 }

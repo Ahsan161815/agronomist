@@ -1,4 +1,4 @@
-import 'ImagePickerWidget.dart';
+import 'pages/pickimage/components/ImagePickerWidget.dart';
 import 'package:flutter/material.dart';
 
 class PlantGrowthPrediction extends StatelessWidget {
