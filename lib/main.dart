@@ -7,6 +7,7 @@ import 'PlantDeseaseDetection.dart';
 import 'PlantGrowthPrediction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'pages/response/Response.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -27,6 +28,7 @@ void main() {
       '/recognition':(context) => const PlantRecognition(),
       '/disease':(context) => const PlantDiseaseDetection(),
       '/growth':(context) => const PlantGrowthPrediction(),
+      '/response':(context) => const Response(),
 
 
     },

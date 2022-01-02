@@ -29,10 +29,10 @@ class ImageHandler{
     }
   }
 
-  upload(File imageFile) async {
+  Future<String> upload(File imageFile) async {
     // open a bytestream
     // var stream = http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
-
+    String? r;
     var stream  = http.ByteStream(imageFile.openRead());
     stream.cast();
 
@@ -57,9 +57,15 @@ class ImageHandler{
     print(response.statusCode);
 
     // listen for response
-    response.stream.transform(utf8.decoder).listen((value) {
-      print(value);
-    });
+    // response.stream.transform(utf8.decoder).listen((value) {
+    //   // print(value);
+    //   r = value;
+    //
+    // });
+    var rdata = await response.stream.toBytes();
+    var rstring = String.fromCharCodes(rdata);
+    return rstring;
+
   }
 
 }

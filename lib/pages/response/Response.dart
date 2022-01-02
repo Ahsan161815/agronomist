@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart'
+;
+class Response extends StatelessWidget {
+  const Response({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var revddata = ModalRoute.of(context)?.settings.arguments;
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+            child: Text(
+              revddata.toString(),
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

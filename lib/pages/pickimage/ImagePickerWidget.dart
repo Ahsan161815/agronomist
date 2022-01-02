@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:agronomist/models/imageHandler.dart';
@@ -56,8 +57,13 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
         Padding(
           padding: const EdgeInsets.all(20),
           child: TextButton.icon(
-            onPressed: (){
-              imghandler.upload(imghandler.f_image!);
+            onPressed: () async {
+              String response = await imghandler.upload(imghandler.f_image!);
+              // print(response);
+              Navigator.pushNamed(context, "/response",
+                arguments: {"response": response}
+              );
+
             },
             icon: const Icon(Icons.navigate_next,
               size: 30,
