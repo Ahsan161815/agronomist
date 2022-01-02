@@ -27,36 +27,40 @@ class Introduction extends StatelessWidget {
           PageViewModel(
             title: 'Welcome to Agronomist',
             // image: Image.asset("assets/images/plants1.jpg", height: 250,),
-            body: "The world's rapidly rising population requires most countries"
-                " to make the best possible use of their land resources for "
-                "agriculture, horticulture, forestry and conservation. "
-                "Being able to predict where and how well particular plants "
-                "are likely to grow in different regions is vital for land "
-                "use planning.",
+            body: "دنیا کی تیزی سے بڑھتی ہوئی آبادی کو زیادہ تر ممالک کی ضرورت ہے"
+            "اپنے زمینی وسائل کا بہترین استعمال کرنے کے لیے"
+            "زراعت، باغبانی، جنگلات اور تحفظ۔"
+          "پیش گوئی کرنے کے قابل ہونا کہ مخصوص پودے کہاں اور کتنے اچھے ہیں"
+          "مختلف خطوں میں بڑھنے کا امکان زمین کے لیے ضروری ہے"
+          "منصوبہ بندی کا استعمال کریں.",
 
           ),
           PageViewModel(
-            title: 'Plant Recognition',
+            title: 'پودوں کی شناخت',
             image: Image.asset("assets/images/plants4.jpg", height: 250,),
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                'Nam sit amet justo congue, pulvinar eros ac, pretium enim.'
-                ' Cras vel massa pulvinar' ,
+            body: 'یہ فیچر صارفین کو متعدد کے بارے میں معلومات حاصل کرنے کی اجازت دے گا'
+                'پودے کی پتی یا پھول کی تصویر کے ذریعے پودے، اور معلومات تک رسائی حاصل کر سکتے ہیں'
+                'اس پودے کو کیسے اگایا جائے۔ '
+            'یہ فیچر ہوم گارڈننگ اور ٹورازم کو متاثر کرے گا'
+            'ہدایت کاری۔,',
 
           ),
           PageViewModel(
             image: Image.asset("assets/images/plants2.jpg", height: 250,),
-            title: 'Plant Disease Detection',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                ' Nam sit amet justo congue, pulvinar eros ac, pretium enim.'
-                ' Cras vel massa pulvinar',
+            title: 'بیماریوں کا پتہ لگانا',
+            body: 'یہ فیچر صارف کو پودوں کی بیماری کی شناخت کرنے کی اجازت دے گا'
+                ' متاثرہ پودے کے پتے یا پودے کے پھول کی تصویر کے ذریعے۔ '
+            'یہ خصوصیت متاثر کرے گی'
+            'گھر کی باغبانی.',
 
           ),
           PageViewModel(
             image: Image.asset("assets/images/plants1.jpg", height: 250,),
-            title: 'Plant Growth Prediction',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing '
-                'elit. Nam sit amet justo congue, pulvinar eros ac, '
-                'pretium enim. Cras vel massa pulvinar',
+            title: 'پیداوار کی پیشن گوئی',
+            body: 'یہ فیچر صارف کو پیش گوئی کے بارے میں جاننے کی اجازت دے گا'
+                ' فصل کی پیداوار اپنے ابتدائی مرحلے میں۔ '
+            'یہ خصوصیت ہوگی'
+            'زراعت کے شعبے پر اثر پڑتا ہے۔',
 
           )
         ],
