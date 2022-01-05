@@ -5,6 +5,7 @@ import 'package:path/path.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
+import 'package:agronomist/models/translator.dart';
 
 
 class ImageHandler{
@@ -64,8 +65,14 @@ class ImageHandler{
     // });
     var rdata = await response.stream.toBytes();
     var rstring = String.fromCharCodes(rdata);
-    print(rstring);
-    return rstring;
+
+    CustomTranslator t = CustomTranslator();
+    var translated = await t.translate(rstring);
+    var to_str = translated.toString();
+    // print(translated);
+
+    print(to_str);
+    return to_str;
 
   }
 

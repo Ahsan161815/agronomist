@@ -5,6 +5,7 @@ class Response extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // bool isLoading = true;
     var revddata = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       body: SafeArea(
