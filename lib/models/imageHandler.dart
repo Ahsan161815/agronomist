@@ -41,7 +41,8 @@ class ImageHandler{
     var length = await imageFile.length();
 
     // string to uri
-    var uri = Uri.parse("http://10.102.130.246:5000/");
+    // var uri = Uri.parse("http://10.102.130.246:5000/");
+    var uri = Uri.parse("http://192.168.1.4:5000/");
 
     // create multipart request
     var request = http.MultipartRequest("POST", uri);
