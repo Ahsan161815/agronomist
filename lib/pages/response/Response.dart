@@ -13,11 +13,11 @@ class Response extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
             child: Text(
               revddata.toString(),
               style: const TextStyle(
-                fontSize: 22,
+                fontSize: 16,
                 fontWeight: FontWeight.w300,
               ),
             ),

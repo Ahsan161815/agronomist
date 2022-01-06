@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:agronomist/models/translator.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 
 class ImageHandler{
@@ -20,7 +21,10 @@ class ImageHandler{
       _image = await ImagePicker().pickImage(source: source);
       if (_image == null) return;
 
-      f_image = File(_image!.path);
+       // f_image = File(_image!.path);
+
+      f_image = await cropImage(File(_image!.path));
+
 
       // setState(() {
       //   this._image = imageTemporary;
@@ -29,6 +33,10 @@ class ImageHandler{
       print('Failed to pick image: $e');
     }
   }
+
+  Future<File?> cropImage(File imagefile) async => await ImageCropper.cropImage(
+    sourcePath: imagefile.path,
+  );
 
   Future<String> upload(File imageFile) async {
     // open a bytestream
@@ -41,8 +49,8 @@ class ImageHandler{
     var length = await imageFile.length();
 
     // string to uri
-    // var uri = Uri.parse("http://10.102.130.246:5000/");
-    var uri = Uri.parse("http://192.168.1.4:5000/");
+    var uri = Uri.parse("http://10.102.130.246:5000/");
+    // var uri = Uri.parse("http://192.168.1.4:5000/");
 
     // create multipart request
     var request = http.MultipartRequest("POST", uri);
@@ -76,7 +84,4 @@ class ImageHandler{
     return to_str;
 
   }
-
-
-
 }
