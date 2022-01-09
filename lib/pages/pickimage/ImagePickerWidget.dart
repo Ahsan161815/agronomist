@@ -5,7 +5,6 @@ import 'package:agronomist/models/imageHandler.dart';
 import 'package:agronomist/pages/pickimage/components/image_select_container.dart';
 
 
-
 class ImagePickerWidget extends StatefulWidget {
   const ImagePickerWidget({Key? key}) : super(key: key);
 
@@ -27,20 +26,19 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Center(
+         const Center(
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Text(
-              'Select or Capture an Image of a plant',
-              style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w300
-                // fontFamily: "Verdana",
-              ),
-
+            "Select OR Capture an Image",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.normal,
+            color: Colors.black,
             ),
           ),
-        ),
+        ),),
         Expanded(
           child: Center(
             child: imghandler.f_image != null ?

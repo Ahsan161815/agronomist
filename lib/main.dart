@@ -9,17 +9,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/response/Response.dart';
 import 'pages/responseloading/LoadingScreen.dart';
+import 'package:hexcolor/hexcolor.dart';
+
+final HexColor pcolor = HexColor('#517348');
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.green, // navigation bar color
-    statusBarColor: Colors.green, // status bar color
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: pcolor, // navigation bar color
+    statusBarColor: pcolor, // status bar color
+    statusBarIconBrightness: Brightness.light,
+
   ));
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Agronomist',
     theme: ThemeData(
-      primarySwatch: Colors.green,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: pcolor,
+      ),
+
     ),
     routes: {
       '/':(context) => const Introduction(),

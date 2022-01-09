@@ -1,20 +1,41 @@
+import 'package:agronomist/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'components/AppContainer.dart';
+import 'package:agronomist/components/AppText.dart';
 
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
 
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   void function1 (){
     print('My function');
   }
 
-  const Home({Key? key}) : super(key: key);
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-            Icons.home
+        // leading: const Icon(
+        //     Icons.home,
+        // ),
+        elevation: 0,
+        title: Text('Agronomist',
         ),
         actions: [
           IconButton(
@@ -34,41 +55,94 @@ class Home extends StatelessWidget {
         ],
         shadowColor: Colors.transparent,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          AppContainer(
-            child: const Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 100,
-            ),
-            function: () => {
-              Navigator.pushNamed(context, '/recognition')
-            },
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.white,
+                Colors.grey,
+              ],
+            )
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: AppContainer(
+                      title: 'Identify',
+                      tag: 'tagline',
+                      icon: Icons.search,
+                      function: () => {
+                        Navigator.pushNamed(context, '/recognition')
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: AppContainer(
+                      title: 'Disease',
+                      tag: 'tagline',
+                      icon: Icons.search,
+                      function: () => {
+                        Navigator.pushNamed(context, '/disease')
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: AppContainer(
+                      title: 'Yeild Prediction',
+                      tag: 'tagline',
+                      icon: Icons.search,
+                      function: () => {
+                        Navigator.pushNamed(context, '/growth')
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-          AppContainer(
-            child: const Icon(
-              Icons.local_florist,
-              color: Colors.white,
-              size: 100,
-            ),
-            function: () => {
-              Navigator.pushNamed(context, '/disease')
-            },
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: Colors.green,
           ),
-          AppContainer(
-            child: const Icon(
-              Icons.live_help,
-              color: Colors.white,
-              size: 100,
-            ),
-            function: () => {
-              Navigator.pushNamed(context, '/growth')
-            },
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+              backgroundColor: Colors.yellow
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Home',
+            backgroundColor: Colors.blue,
           ),
         ],
-      )
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.white,
+        iconSize: 30,
+        unselectedItemColor: Colors.white70,
+        onTap: _onItemTapped,
+        elevation: 5,
+        backgroundColor: pcolor,
+      ),
     );
   }
 }
