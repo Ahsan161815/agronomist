@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:agronomist/models/imageHandler.dart';
 import 'package:agronomist/pages/pickimage/components/image_select_container.dart';
@@ -26,7 +27,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-         const Center(
+        Center(
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Text(
@@ -35,7 +36,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
             style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.normal,
-            color: Colors.black,
+            color: HexColor('#517348'),
             ),
           ),
         ),),
@@ -45,10 +46,10 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
             Image.file(imghandler.f_image!,
               width: 350,
               height: 350,) :
-            const Icon(
+            Icon(
               Icons.image_not_supported_outlined,
               size: 100,
-              color: Colors.green,),
+              color: HexColor('#517348'),),
           ),
         ),
         imghandler.f_image == null ? ImageSelectContainer(pickimagefunction: setPickImage,) :

@@ -8,12 +8,15 @@ class AppContainer extends StatelessWidget {
   final IconData icon;
   final Function function;
   final String tag;
+  final Color bgColor;
 
   AppContainer({
     required this.title,
     required this.tag,
     required this.icon,
-    required this.function}
+    required this.function,
+    this.bgColor = Colors.grey,
+  }
     );
 
   // const AppContainer({Key? key}) : super(key: key);
@@ -25,7 +28,7 @@ class AppContainer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [BoxShadow(
-            color: Colors.grey.withOpacity(0.8),
+            color: bgColor.withOpacity(0.8),
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(2, 7), // changes position of
@@ -44,8 +47,8 @@ class AppContainer extends StatelessWidget {
               left: 20,
               child: Icon(
                 icon,
-                color: Colors.blueGrey,
-                size: 40,
+                color: Colors.grey,
+                size: 25,
               ),
             ),
             Positioned(child: AppText(
@@ -54,7 +57,10 @@ class AppContainer extends StatelessWidget {
             ),
             Positioned(child: Text(
               tag,
-            ), left: 20, bottom:30,
+              style: const TextStyle(
+                color: Colors.grey
+              ),
+            ), left: 20, bottom:40,
             ),
           ],
         ),

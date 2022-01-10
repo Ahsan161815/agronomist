@@ -7,12 +7,14 @@ final HexColor color = HexColor('#517348');
 class AppText extends StatelessWidget {
 
   final text;
-  final fontSize = 28.0;
-  final lspacing = 1.0;
+  final fontSize;
+  final lspacing;
 
   const AppText({
     Key? key,
-    required this.text,
+    this.text = 'App Text Widget',
+    this.fontSize = 20.0,
+    this.lspacing = 1.0,
   }) : super(key: key);
 
 

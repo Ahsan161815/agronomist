@@ -94,6 +94,10 @@ flutter:
      fonts:
        - asset: assets/fonts/Poppins-Medium.ttf
 
+   - family: aadil
+     fonts:
+       - asset: assets/fonts/Aadil.ttf
+
    - family: poppinssemi
      fonts:
        - asset: assets/fonts/Poppins-SemiBold.ttf

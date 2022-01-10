@@ -34,8 +34,13 @@ class _HomeState extends State<Home> {
         // leading: const Icon(
         //     Icons.home,
         // ),
-        elevation: 0,
+        elevation: 2,
         title: Text('Agronomist',
+          style: TextStyle(
+            fontFamily: 'poppins',
+            letterSpacing: 1,
+            fontSize: 25,
+          ),
         ),
         actions: [
           IconButton(
@@ -69,8 +74,21 @@ class _HomeState extends State<Home> {
         child: Padding(
           padding: EdgeInsets.all(15.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Expanded(child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    AppText(
+                      text: "Welcome Plant Lover!",
+                      fontSize: 30.0,
+                      lspacing: 1.3,
+                    )
+                  ],
+                ),
+              )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -78,8 +96,8 @@ class _HomeState extends State<Home> {
                     flex: 1,
                     child: AppContainer(
                       title: 'Identify',
-                      tag: 'tagline',
-                      icon: Icons.search,
+                      tag: 'recognize plants',
+                      icon: Icons.camera_alt_outlined,
                       function: () => {
                         Navigator.pushNamed(context, '/recognition')
                       },
@@ -89,8 +107,8 @@ class _HomeState extends State<Home> {
                     flex: 1,
                     child: AppContainer(
                       title: 'Disease',
-                      tag: 'tagline',
-                      icon: Icons.search,
+                      tag: 'recognize disease',
+                      icon: Icons.medical_services_outlined,
                       function: () => {
                         Navigator.pushNamed(context, '/disease')
                       },
@@ -102,9 +120,19 @@ class _HomeState extends State<Home> {
                 children: [
                   Expanded(
                     child: AppContainer(
-                      title: 'Yeild Prediction',
-                      tag: 'tagline',
-                      icon: Icons.search,
+                      title: 'Plant Yeild',
+                      tag: 'predict plants yeild',
+                      icon: Icons.grass_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/growth')
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: AppContainer(
+                      title: 'Extra',
+                      tag: 'extra container',
+                      icon: Icons.grass_outlined,
                       function: () => {
                         Navigator.pushNamed(context, '/growth')
                       },
@@ -124,13 +152,13 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
+              icon: Icon(Icons.shopping_bag_sharp),
+              label: 'Shop Now',
               backgroundColor: Colors.yellow
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Home',
+            label: 'Profile',
             backgroundColor: Colors.blue,
           ),
         ],
