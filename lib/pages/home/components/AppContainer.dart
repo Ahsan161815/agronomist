@@ -40,6 +40,7 @@ class AppContainer extends StatelessWidget {
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         //color: Colors.green,
         height: 150,
+        width: 150,
         child: Stack(
           children: [
             Positioned(
@@ -53,12 +54,14 @@ class AppContainer extends StatelessWidget {
             ),
             Positioned(child: AppText(
               text: title,
+              lspacing: 0.0,
             ), left: 20, top:70,
             ),
             Positioned(child: Text(
               tag,
               style: const TextStyle(
-                color: Colors.grey
+                color: Colors.grey,
+                letterSpacing: 1,
               ),
             ), left: 20, bottom:40,
             ),

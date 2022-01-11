@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'components/AppContainer.dart';
 import 'package:agronomist/components/AppText.dart';
-
+import 'package:agronomist/pages/shopnow/ShopNow.dart';
 
 class Home extends StatefulWidget {
 
@@ -27,6 +27,13 @@ class _HomeState extends State<Home> {
     });
   }
 
+  List<Widget> screens = [
+    const HomeBody(),
+    const ShopNow(),
+    Container(color: Colors.blue, child: const Center(child: Text('Consult page')),),
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,11 +42,11 @@ class _HomeState extends State<Home> {
         //     Icons.home,
         // ),
         elevation: 2,
-        title: Text('Agronomist',
+        title: const Text('Agronomist',
           style: TextStyle(
             fontFamily: 'poppins',
             letterSpacing: 1,
-            fontSize: 25,
+            fontSize: 22,
           ),
         ),
         actions: [
@@ -60,90 +67,7 @@ class _HomeState extends State<Home> {
         ],
         shadowColor: Colors.transparent,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.white,
-                Colors.grey,
-              ],
-            )
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(child: Container(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    AppText(
-                      text: "Welcome Plant Lover!",
-                      fontSize: 30.0,
-                      lspacing: 1.3,
-                    )
-                  ],
-                ),
-              )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: AppContainer(
-                      title: 'Identify',
-                      tag: 'recognize plants',
-                      icon: Icons.camera_alt_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/recognition')
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: AppContainer(
-                      title: 'Disease',
-                      tag: 'recognize disease',
-                      icon: Icons.medical_services_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/disease')
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: AppContainer(
-                      title: 'Plant Yeild',
-                      tag: 'predict plants yeild',
-                      icon: Icons.grass_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/growth')
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: AppContainer(
-                      title: 'Extra',
-                      tag: 'extra container',
-                      icon: Icons.grass_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/growth')
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -157,8 +81,8 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.yellow
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.group),
+            label: 'Consult us',
             backgroundColor: Colors.blue,
           ),
         ],
@@ -170,6 +94,100 @@ class _HomeState extends State<Home> {
         onTap: _onItemTapped,
         elevation: 5,
         backgroundColor: pcolor,
+      ),
+    );
+  }
+}
+
+class HomeBody extends StatelessWidget {
+  const HomeBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white,
+              Colors.grey,
+            ],
+          )
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(child: Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  AppText(
+                    text: "Welcome Plant Lover!",
+                    fontSize: 30.0,
+                    lspacing: 1.3,
+                  )
+                ],
+              ),
+            )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: AppContainer(
+                    title: 'Identify',
+                    tag: 'recognize plants',
+                    icon: Icons.camera_alt_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/recognition')
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: AppContainer(
+                    title: 'Disease',
+                    tag: 'recognize disease',
+                    icon: Icons.medical_services_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/disease')
+                    },
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: AppContainer(
+                    title: 'Plant Yeild',
+                    tag: 'predict plants yeild',
+                    icon: Icons.grass_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/growth')
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: AppContainer(
+                    title: 'Extra',
+                    tag: 'extra container',
+                    icon: Icons.grass_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/growth')
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
