@@ -1,5 +1,6 @@
 import 'package:agronomist/components/AppText.dart';
 import 'package:agronomist/pages/shopnow/components/titlewithmorebtn.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:agronomist/pages/constants.dart';
 // import 'package:hexcolor/hexcolor.dart';
@@ -16,19 +17,17 @@ class Body extends StatelessWidget {
     // It will provie us total height  and width of our screen
     Size size = MediaQuery.of(context).size;
     // it enable scrolling on small device
-    return Column(
-      children: [
-        ShopAppBar(size: size),
-        SingleChildScrollView(
-          child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              TitleWithMoreBtn(title: 'Recommended Plants'),
-              RecomendPlants()
-            ],
-          ),
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ShopAppBar(size: size),
+          TitleWithMoreBtn(title: 'Recommended Plants'),
+          RecomendPlants(),
+          TitleWithMoreBtn(title: 'Famous Plants'),
+          RecomendPlants()
+        ],
+      ),
     );
   }
 }
@@ -193,7 +192,7 @@ class RecomendPlantCard extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    '\$$price',
+                    '\Pkr $price',
                     style: Theme.of(context)
                         .textTheme
                         .button
