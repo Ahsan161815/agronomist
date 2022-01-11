@@ -37,36 +37,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // leading: const Icon(
-        //     Icons.home,
-        // ),
-        elevation: 2,
-        title: const Text('Agronomist',
-          style: TextStyle(
-            fontFamily: 'poppins',
-            letterSpacing: 1,
-            fontSize: 22,
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.chat_bubble_sharp),
-            tooltip: 'Chat with us',
-            onPressed: () {
-              Navigator.pushNamed(context, '/chat');
-            },
-          ), //IconButton
-          IconButton(
-            icon: const Icon(Icons.featured_play_list_rounded),
-            tooltip: 'Crops list',
-            onPressed: () {
-              Navigator.pushNamed(context, '/cropslist');
-            },
-          ), //IconButton
-        ],
-        shadowColor: Colors.transparent,
-      ),
       body: screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -106,87 +76,119 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Colors.white,
-              Colors.grey,
-            ],
-          )
+    return Scaffold(
+      appBar: AppBar(
+        // leading: const Icon(
+        //     Icons.home,
+        // ),
+        elevation: 2,
+        title: const Text('Agronomist',
+          style: TextStyle(
+            fontFamily: 'poppins',
+            letterSpacing: 1,
+            fontSize: 22,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.chat_bubble_sharp),
+            tooltip: 'Chat with us',
+            onPressed: () {
+              Navigator.pushNamed(context, '/chat');
+            },
+          ), //IconButton
+          IconButton(
+            icon: const Icon(Icons.featured_play_list_rounded),
+            tooltip: 'Crops list',
+            onPressed: () {
+              Navigator.pushNamed(context, '/cropslist');
+            },
+          ), //IconButton
+        ],
+        shadowColor: Colors.transparent,
       ),
-      child: Padding(
-        padding: EdgeInsets.all(15.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(child: Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  AppText(
-                    text: "Welcome Plant Lover!",
-                    fontSize: 30.0,
-                    lspacing: 1.3,
-                  )
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.white,
+                Colors.grey,
+              ],
+            )
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    AppText(
+                      text: "Welcome Plant Lover!",
+                      fontSize: 30.0,
+                      lspacing: 1.3,
+                    )
+                  ],
+                ),
+              )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: AppContainer(
+                      title: 'Identify',
+                      tag: 'recognize plants',
+                      icon: Icons.camera_alt_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/recognition')
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: AppContainer(
+                      title: 'Disease',
+                      tag: 'recognize disease',
+                      icon: Icons.medical_services_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/disease')
+                      },
+                    ),
+                  ),
                 ],
               ),
-            )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: AppContainer(
-                    title: 'Identify',
-                    tag: 'recognize plants',
-                    icon: Icons.camera_alt_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/recognition')
-                    },
+              Row(
+                children: [
+                  Expanded(
+                    child: AppContainer(
+                      title: 'Plant Yeild',
+                      tag: 'predict plants yeild',
+                      icon: Icons.grass_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/growth')
+                      },
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: AppContainer(
-                    title: 'Disease',
-                    tag: 'recognize disease',
-                    icon: Icons.medical_services_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/disease')
-                    },
+                  Expanded(
+                    child: AppContainer(
+                      title: 'Extra',
+                      tag: 'extra container',
+                      icon: Icons.grass_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/growth')
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: AppContainer(
-                    title: 'Plant Yeild',
-                    tag: 'predict plants yeild',
-                    icon: Icons.grass_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/growth')
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: AppContainer(
-                    title: 'Extra',
-                    tag: 'extra container',
-                    icon: Icons.grass_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/growth')
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

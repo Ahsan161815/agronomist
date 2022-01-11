@@ -40,7 +40,9 @@ dependencies:
   translator: ^0.1.7
   image_cropper: ^1.4.1
   hexcolor: ^2.0.5
+  flutter_svg: ^1.0.0
 
+#  flutter_svg: #it helps us to use SVG
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,8 @@ flutter:
   assets:
    - assets/images/
    - assets/splash/
+   - assets/icons/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
