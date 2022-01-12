@@ -4,7 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'components/AppContainer.dart';
 import 'package:agronomist/components/AppText.dart';
-import 'package:agronomist/pages/shopnow/ShopNow.dart';
+// import 'package:agronomist/pages/shopnow/ShopNow.dart';
+import 'package:agronomist/pages/shopnow_category/category.dart';
 
 class Home extends StatefulWidget {
 
@@ -29,7 +30,7 @@ class _HomeState extends State<Home> {
 
   List<Widget> screens = [
     const HomeBody(),
-    const ShopNow(),
+    const Category(),
     Container(color: Colors.blue, child: const Center(child: Text('Consult page')),),
 
   ];

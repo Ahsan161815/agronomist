@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:agronomist/pages/shopnow/components/body.dart';
+import 'package:agronomist/pages/shopnow_category/category.dart';
 
 class ShopNow extends StatelessWidget {
   const ShopNow({Key? key}) : super(key: key);
@@ -36,3 +37,4 @@ class ShopNow extends StatelessWidget {
     );
   }
 }
+

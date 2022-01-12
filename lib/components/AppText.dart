@@ -6,7 +6,7 @@ final HexColor color = HexColor('#517348');
 
 class AppText extends StatelessWidget {
 
-  final text;
+  final String text;
   final fontSize;
   final lspacing;
 

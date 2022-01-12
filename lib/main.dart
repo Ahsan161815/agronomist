@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'pages/response/Response.dart';
 import 'pages/responseloading/LoadingScreen.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:agronomist/pages/shopnow/ShopNow.dart';
 
 final HexColor pcolor = HexColor('#517348');
 
@@ -39,6 +40,7 @@ void main() {
       '/growth':(context) => const PlantGrowthPrediction(),
       '/response':(context) => const Response(),
       '/responseloading':(context) => const LoadingScreen(),
+      '/shopnow' : (context) => const ShopNow(),
 
     },
   ));
