@@ -31,18 +31,18 @@ class Category extends StatelessWidget {
               CategoryWidget(
                 size: size,
                 title: "Pesticides",
-                imageadrs: 'assets/images/pestip.jpg',
+                imageadrs: 'assets/images/category/cat1.jpg',
                 function: (){
-                  Navigator.pushNamed(context, '/shopnow');
+                  Navigator.pushNamed(context, '/shopnow_pesticides');
                 },
               ),
               SizedBox(height: 20,),
               CategoryWidget(
                 size: size,
                 title: "Plants",
-                imageadrs: 'assets/images/flowers.jpg',
+                imageadrs: 'assets/images/category/cat2.jpg',
                 function: (){
-                  Navigator.pushNamed(context, '/shopnow');
+                  Navigator.pushNamed(context, '/shopnow_plants');
                 },
               ),
             ],
@@ -92,12 +92,12 @@ class CategoryWidget extends StatelessWidget {
         width: size.width,
         child: Center(
           child: Container(
-            color: Colors.white60,
+            color: Colors.white,
             padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             child: AppText(
               text: title,
-              lspacing: 1.0,
-              fontSize: 40.0,
+              lspacing: 2.0,
+              fontSize: 25.0,
             ),
           ),
         ),

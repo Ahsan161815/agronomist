@@ -77,6 +77,9 @@ flutter:
    - assets/images/
    - assets/splash/
    - assets/icons/
+   - assets/images/category/
+   - assets/images/pesticide_products/
+   - assets/images/plants/
 
   #   - images/a_dot_ham.jpeg
 

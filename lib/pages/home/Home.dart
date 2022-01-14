@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'components/AppContainer.dart';
 import 'package:agronomist/components/AppText.dart';
-// import 'package:agronomist/pages/shopnow/ShopNow.dart';
+// import 'package:agronomist/pages/shopnow_plants/Pesticides.dart';
 import 'package:agronomist/pages/shopnow_category/category.dart';
 
 class Home extends StatefulWidget {
