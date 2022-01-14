@@ -31,6 +31,7 @@ class Category extends StatelessWidget {
               CategoryWidget(
                 size: size,
                 title: "Pesticides",
+                imageadrs: 'assets/images/pestip.jpg',
                 function: (){
                   Navigator.pushNamed(context, '/shopnow');
                 },
@@ -39,6 +40,7 @@ class Category extends StatelessWidget {
               CategoryWidget(
                 size: size,
                 title: "Plants",
+                imageadrs: 'assets/images/flowers.jpg',
                 function: (){
                   Navigator.pushNamed(context, '/shopnow');
                 },
@@ -57,10 +59,12 @@ class CategoryWidget extends StatelessWidget {
     required this.size,
     this.title = 'Title goes here',
     required this.function,
+    required this.imageadrs
   }) : super(key: key);
 
   final Size size;
   final String title;
+  final String imageadrs;
   final Function function;
 
   @override
@@ -69,10 +73,10 @@ class CategoryWidget extends StatelessWidget {
       onTap: () => function(),
       child: Container(
         decoration: BoxDecoration(
-          image: const DecorationImage(
-            image: AssetImage("assets/images/bottom_img_1.png"),
+          image: DecorationImage(
+            image: AssetImage(imageadrs.toString()),
             fit: BoxFit.cover,
-            opacity: 0.6,
+            // opacity: 0.6,
           ),
           boxShadow: [BoxShadow(
             color: Colors.grey.withOpacity(0.8),
@@ -85,11 +89,16 @@ class CategoryWidget extends StatelessWidget {
         ),
         // color: Colors.red,
         height: size.height/3,
+        width: size.width,
         child: Center(
-          child: AppText(
-            text: title,
-            lspacing: 1.0,
-            fontSize: 40.0,
+          child: Container(
+            color: Colors.white60,
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            child: AppText(
+              text: title,
+              lspacing: 1.0,
+              fontSize: 40.0,
+            ),
           ),
         ),
       ),

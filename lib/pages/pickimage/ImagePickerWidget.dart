@@ -57,16 +57,10 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
           padding: const EdgeInsets.all(20),
           child: TextButton.icon(
             onPressed: () async {
-              // navigate to loading screen before sending request
-              Navigator.pushNamed(context, "/responseloading");
-
-              // get response from image handler and wait
-              String response = await imghandler.upload(imghandler.f_image!);
-              // print(response);
 
               // Nevigate to response with response data
               Navigator.pushNamed(context, "/response",
-                arguments: {"response": response}
+                arguments: {"img_handle": imghandler}
               );
 
             },

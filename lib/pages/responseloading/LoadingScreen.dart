@@ -5,14 +5,19 @@ class LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(
-          semanticsLabel: "loading Screen",
-          color: Colors.green,
-          // strokeWidth: 2,
-          // backgroundColor: Colors.green,
+        child: Image.asset(
+          "assets/images/giff.gif",
+          height: 125.0,
+          width: 125.0,
         ),
+        // CircularProgressIndicator(
+        //   semanticsLabel: "loading Screen",
+        //   color: Colors.green,
+        //   // strokeWidth: 2,
+        //   // backgroundColor: Colors.green,
+        // ),
       ),
     );
   }

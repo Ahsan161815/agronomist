@@ -38,7 +38,7 @@ class ImageHandler{
     sourcePath: imagefile.path,
   );
 
-  Future<String> upload(File imageFile) async {
+  Future<Map> upload(File imageFile) async {
     // open a bytestream
     // var stream = http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
     String? r;
@@ -78,10 +78,20 @@ class ImageHandler{
     CustomTranslator t = CustomTranslator();
     var translated = await t.translate(rstring);
     var to_str = translated.toString();
+
+    Map to_map = Map();
+
+    var striped = to_str.split(":");
+    // print(striped);
+    to_map['name'] = striped[0];
+    to_map['value'] = striped[1];
+    to_map['body'] = striped[2];
+
+    print(to_map);
     // print(translated);
 
-    print(to_str);
-    return to_str;
+    // print(to_str);
+    return to_map;
 
   }
 }
