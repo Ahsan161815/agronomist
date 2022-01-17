@@ -1,4 +1,5 @@
 import 'package:agronomist/components/AppText.dart';
+import 'package:agronomist/pages/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -9,6 +10,10 @@ class AppContainer extends StatelessWidget {
   final Function function;
   final String tag;
   final Color bgColor;
+  final Color containerColor;
+  final Color iconPlusText;
+  final Color titleColor;
+
 
   AppContainer({
     required this.title,
@@ -16,6 +21,9 @@ class AppContainer extends StatelessWidget {
     required this.icon,
     required this.function,
     this.bgColor = Colors.grey,
+    this.iconPlusText = Colors.grey,
+    this.containerColor = Colors.white70,
+    this.titleColor = testcolor,
   }
     );
 
@@ -35,7 +43,7 @@ class AppContainer extends StatelessWidget {
           ),],
           borderRadius: BorderRadius.circular(20.0),
 
-            color: Colors.white70,
+            color: containerColor,
         ),
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         //color: Colors.green,
@@ -48,19 +56,20 @@ class AppContainer extends StatelessWidget {
               left: 20,
               child: Icon(
                 icon,
-                color: Colors.grey,
+                color: iconPlusText,
                 size: 25,
               ),
             ),
             Positioned(child: AppText(
               text: title,
               lspacing: 0.0,
+              color: titleColor,
             ), left: 20, top:70,
             ),
             Positioned(child: Text(
               tag,
-              style: const TextStyle(
-                color: Colors.grey,
+              style: TextStyle(
+                color: iconPlusText,
                 letterSpacing: 1,
               ),
             ), left: 20, bottom:40,

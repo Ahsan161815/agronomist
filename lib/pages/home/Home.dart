@@ -1,11 +1,12 @@
+import 'package:agronomist/components/AppSmallText.dart';
 import 'package:agronomist/main.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'components/AppContainer.dart';
 import 'package:agronomist/components/AppText.dart';
-// import 'package:agronomist/pages/shopnow_plants/Pesticides.dart';
 import 'package:agronomist/pages/shopnow_category/category.dart';
+import 'package:agronomist/pages/constants.dart';
 
 class Home extends StatefulWidget {
 
@@ -126,14 +127,26 @@ class HomeBody extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(child: Container(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     AppText(
                       text: "Welcome Plant Lover!",
                       fontSize: 30.0,
                       lspacing: 1.3,
-                    )
+                    ),
+                    SizedBox(height: 10,),
+                    AppSmallText(
+                      text: "The world's rapidly rising population requires most countries"
+                    " to make the best possible use of their land resources for "
+                        "agriculture, horticulture, forestry and conservation. "
+                        "Being able to predict where and how well particular plants "
+                        "are likely to grow in different regions is vital for land "
+                        "use planning.",
+                      fontSize: 14.0,
+
+                    ),
                   ],
                 ),
               )),
@@ -180,7 +193,14 @@ class HomeBody extends StatelessWidget {
                     child: AppContainer(
                       title: 'Extra',
                       tag: 'extra container',
+                      bgColor: Colors.grey,
+                      // containerColor: pcolor,
                       icon: Icons.grass_outlined,
+                      containerColor: pcolor,
+                      iconPlusText: Colors.white70,
+                      titleColor: Colors.white,
+                      // iconPlusText: Colors.white70,
+                      // titleColor: Colors.white,
                       function: () => {
                         Navigator.pushNamed(context, '/growth')
                       },

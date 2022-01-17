@@ -112,6 +112,10 @@ flutter:
      fonts:
        - asset: assets/fonts/Aadil.ttf
 
+   - family: urduregular
+     fonts:
+       - asset: assets/fonts/300Regular.ttf
+
    - family: poppinssemi
      fonts:
        - asset: assets/fonts/Poppins-SemiBold.ttf

@@ -89,7 +89,7 @@ class data extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
-                fontFamily: 'aadil',
+                fontFamily: 'urduregular',
               ),
             ),
           ],

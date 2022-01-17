@@ -73,25 +73,30 @@ class ImageHandler{
     //
     // });
     var rdata = await response.stream.toBytes();
+    // print(response.toString());
+    // print(response.stream.);
     var rstring = String.fromCharCodes(rdata);
+    // print(jsonDecode(rstring));
 
     CustomTranslator t = CustomTranslator();
     var translated = await t.translate(rstring);
     var to_str = translated.toString();
 
-    Map to_map = Map();
+    // print(to_str);
+
+    Map toMap = {};
 
     var striped = to_str.split(":");
     // print(striped);
-    to_map['name'] = striped[0];
-    to_map['value'] = striped[1];
-    to_map['body'] = striped[2];
+    toMap['name'] = striped[0];
+    toMap['value'] = striped[1];
+    toMap['body'] = striped[2];
 
-    print(to_map);
+    print(toMap);
     // print(translated);
 
     // print(to_str);
-    return to_map;
+    return toMap;
 
   }
 }
