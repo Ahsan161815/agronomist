@@ -1,5 +1,6 @@
 import 'package:agronomist/components/AppSmallText.dart';
 import 'package:agronomist/main.dart';
+import 'package:agronomist/pages/consult/consult.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -32,7 +33,7 @@ class _HomeState extends State<Home> {
   List<Widget> screens = [
     const HomeBody(),
     const Category(),
-    Container(color: Colors.blue, child: const Center(child: Text('Consult page')),),
+    const Consult(),
 
   ];
 
@@ -60,12 +61,12 @@ class _HomeState extends State<Home> {
         ],
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        iconSize: 30,
-        unselectedItemColor: Colors.white70,
+        selectedItemColor: pcolor,
+        iconSize: 26,
+        unselectedItemColor: pcolor.withOpacity(0.5),
         onTap: _onItemTapped,
         elevation: 5,
-        backgroundColor: pcolor,
+        backgroundColor: Colors.white54,
       ),
     );
   }
