@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 // import 'package:agronomist/pages/constants.dart';
 import 'package:agronomist/components/AppText.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 class Category extends StatelessWidget {
@@ -33,7 +35,12 @@ class Category extends StatelessWidget {
                 title: "Pesticides",
                 imageadrs: 'assets/images/category/cat1.jpg',
                 function: (){
-                  Navigator.pushNamed(context, '/shopnow_pesticides');
+                  launch(
+                    'https://www.amazon.com/s?k=agriculture+pesticides&crid=27DJYLD0E3ZI8&sprefix=agriculture+pesticides%2Caps%2C753&ref=nb_sb_noss',
+                    enableJavaScript: true,
+                    forceWebView: true,
+                  );
+                  // Navigator.pushNamed(context, '/shopnow_pesticides');
                 },
               ),
               SizedBox(height: 20,),
@@ -42,7 +49,12 @@ class Category extends StatelessWidget {
                 title: "Plants",
                 imageadrs: 'assets/images/category/cat2.jpg',
                 function: (){
-                  Navigator.pushNamed(context, '/shopnow_plants');
+                  // Navigator.pushNamed(context, '/shopnow_plants');
+                  launch(
+                    'https://www.amazon.com/s?k=plants&crid=1CA0JZUTKCALL&sprefix=plant%2Caps%2C628&ref=nb_sb_noss',
+                    enableJavaScript: true,
+                    forceWebView: true,
+                  );
                 },
               ),
             ],

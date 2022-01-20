@@ -68,8 +68,8 @@ class data extends StatelessWidget {
                   value,
                   style: const TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: 'aadil',
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'urduregular',
                   ),
                 ),
                 const SizedBox(width: 20),
@@ -78,7 +78,7 @@ class data extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'aadil',
+                    fontFamily: 'urduregular',
                   ),
                 ),
               ],
