@@ -23,7 +23,7 @@ class AppContainer extends StatelessWidget {
     this.bgColor = Colors.grey,
     this.iconPlusText = Colors.grey,
     this.containerColor = Colors.white70,
-    this.titleColor = testcolor,
+    this.titleColor = kTitleTextColor,
   }
     );
 

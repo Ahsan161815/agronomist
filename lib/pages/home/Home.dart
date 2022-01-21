@@ -136,6 +136,7 @@ class HomeBody extends StatelessWidget {
                       text: "Welcome Plant Lover!",
                       fontSize: 30.0,
                       lspacing: 1.3,
+                      color: kTitleTextColor,
                     ),
                     SizedBox(height: 10,),
                     AppSmallText(
@@ -146,6 +147,7 @@ class HomeBody extends StatelessWidget {
                         "are likely to grow in different regions is vital for land "
                         "use planning.",
                       fontSize: 14.0,
+                      color: kTitleTextColor,
 
                     ),
                   ],

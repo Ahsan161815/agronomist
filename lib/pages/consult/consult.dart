@@ -59,11 +59,18 @@ class DoctorCard extends StatelessWidget {
         ),
         title: Text(
           consultant.name,
-          style: const TextStyle(letterSpacing: 2),
+          style: const TextStyle(
+            letterSpacing: 1,
+            color: kTitleTextColor,
+            fontWeight: FontWeight.bold
+          ),
         ),
         subtitle: Text(
           consultant.tag,
-          style: const TextStyle(letterSpacing: 2),
+          style: const TextStyle(
+            letterSpacing: 2,
+            fontSize: 11,
+          ),
         ),
       ),
     );

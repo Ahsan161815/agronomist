@@ -1,6 +1,7 @@
+import 'package:agronomist/main.dart';
 import 'package:agronomist/pages/consult/consult.dart';
 
-import 'schedule_card.dart';
+// import 'schedule_card.dart';
 import 'constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -47,6 +48,7 @@ class DetailScreen extends StatelessWidget {
                       child: SvgPicture.asset(
                         'assets/icons/back.svg',
                         height: 18,
+                        color: pcolor,
                       ),
                     ),
                     SvgPicture.asset(

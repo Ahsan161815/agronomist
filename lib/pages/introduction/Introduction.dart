@@ -37,7 +37,7 @@ class Introduction extends StatelessWidget {
           ),
           PageViewModel(
             title: 'پودوں کی شناخت',
-            image: Image.asset("assets/images/plants4.jpg", height: 250,),
+            image: Image.asset("assets/images/intro/plants4.jpg", height: 250,),
             body: 'یہ فیچر صارفین کو متعدد کے بارے میں معلومات حاصل کرنے کی اجازت دے گا'
                 'پودے کی پتی یا پھول کی تصویر کے ذریعے پودے، اور معلومات تک رسائی حاصل کر سکتے ہیں'
                 'اس پودے کو کیسے اگایا جائے۔ '
@@ -46,7 +46,7 @@ class Introduction extends StatelessWidget {
 
           ),
           PageViewModel(
-            image: Image.asset("assets/images/plants2.jpg", height: 250,),
+            image: Image.asset("assets/images/intro/plants2.jpg", height: 250,),
             title: 'بیماریوں کا پتہ لگانا',
             body: 'یہ فیچر صارف کو پودوں کی بیماری کی شناخت کرنے کی اجازت دے گا'
                 ' متاثرہ پودے کے پتے یا پودے کے پھول کی تصویر کے ذریعے۔ '
@@ -55,7 +55,7 @@ class Introduction extends StatelessWidget {
 
           ),
           PageViewModel(
-            image: Image.asset("assets/images/plants1.jpg", height: 250,),
+            image: Image.asset("assets/images/intro/plants1.jpg", height: 250,),
             title: 'پیداوار کی پیشن گوئی',
             body: 'یہ فیچر صارف کو پیش گوئی کے بارے میں جاننے کی اجازت دے گا'
                 ' فصل کی پیداوار اپنے ابتدائی مرحلے میں۔ '

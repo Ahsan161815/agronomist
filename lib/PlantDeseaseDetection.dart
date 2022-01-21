@@ -31,10 +31,20 @@ class Body extends StatelessWidget {
         {
           return Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: pcolor,
-                  borderRadius: BorderRadius.circular(20.0)
+            child: GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/recognition');
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: pcolor,
+                    borderRadius: BorderRadius.circular(20.0)
+                ),
+                child: const Icon(
+                  Icons.pageview_outlined,
+                  color: Colors.white54,
+                  size: 80,
+                ),
               ),
             ),
           );

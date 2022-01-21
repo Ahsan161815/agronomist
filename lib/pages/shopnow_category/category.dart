@@ -1,3 +1,4 @@
+import 'package:agronomist/pages/constants.dart';
 import 'package:flutter/material.dart';
 // import 'package:agronomist/pages/constants.dart';
 import 'package:agronomist/components/AppText.dart';
@@ -110,6 +111,7 @@ class CategoryWidget extends StatelessWidget {
               text: title,
               lspacing: 2.0,
               fontSize: 25.0,
+              color: kTitleTextColor,
             ),
           ),
         ),
@@ -122,7 +124,7 @@ AppBar buildAppBar() {
   return AppBar(
     elevation: 0,
     leading: IconButton(
-      icon: SvgPicture.asset("assets/icons/menu.svg"),
+      icon: SvgPicture.asset("assets/icons/menu.svg",color: Colors.white,),
       onPressed: () {},
     ),
   );
