@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'pages/response/Response.dart';
 import 'pages/responseloading/LoadingScreen.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:agronomist/pages/consult/components/consultdetailscreen.dart';
 // import 'package:agronomist/pages/shopnow_plants//ShopNow.dart';
 // import 'package:agronomist/pages/shopnow_pesticides/Pesticides.dart';
 
@@ -43,6 +44,7 @@ void main() {
       '/responseloading':(context) => const LoadingScreen(),
       // '/shopnow_plants' : (context) => const ShopNow(),
       // '/shopnow_pesticides' : (context) => Pesticides(),
+      '/consultdetail' : (context) => DetailScreen('Hello', 'sss', ''),
 
     },
   ));
