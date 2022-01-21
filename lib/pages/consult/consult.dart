@@ -9,14 +9,16 @@ class Consultant{
   final String email;
   final String phone;
   final String website;
+  final String description;
 
   const Consultant({
     this.name = 'Name',
     this.tag = 'Tagline',
-    this.image = 'assets/images/doctor1.png',
+    this.image = 'assets/images/doctor2.png',
     this.email = 'Test@gmail.com',
     this.phone = '0300-3758902',
     this.website = 'www.mywebsite.com',
+    this.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
   });
 }
 
@@ -51,7 +53,10 @@ class DoctorCard extends StatelessWidget {
       },
       child: ListTile(
         // leading: Icon(icon, size: 50,),
-        leading: Image.asset(consultant.image),
+        leading: CircleAvatar(
+          backgroundImage: AssetImage(consultant.image),
+          radius: 30.0,
+        ),
         title: Text(
           consultant.name,
           style: const TextStyle(letterSpacing: 2),
@@ -69,21 +74,18 @@ class Consult extends StatelessWidget {
   Consult({Key? key}) : super(key: key);
 
   final List<Consultant> c_list = [
-    Consultant(name: 'Saeed Khan', tag: 'Sukkur IBA Student | AI Specialist',),
-    Consultant(name: 'Ahsanullah Abdullah', tag: 'Self Learner | App Developer'),
+    Consultant(name: 'Saeed Khan', tag: 'Sukkur IBA Student | AI Specialist',
+      image: 'assets/images/saeed2.jfif',
+    ),
+    Consultant(name: 'Ahsanullah Abdullah', tag: 'Self Learner | App Developer',
+    ),
     Consultant(name: 'Muhammad Ahsan', tag: 'Sukkur IBA Student | Web Developer'),
-    Consultant(name: 'Saeed Khan', tag: 'Sukkur IBA Student | AI Specialist',),
-    Consultant(name: 'Ahsanullah Abdullah', tag: 'Self Learner | App Developer'),
-    Consultant(name: 'Muhammad Ahsan', tag: 'Sukkur IBA Student | Web Developer'),
-    Consultant(name: 'Saeed Khan', tag: 'Sukkur IBA Student | AI Specialist',),
-    Consultant(name: 'Ahsanullah Abdullah', tag: 'Self Learner | App Developer'),
-    Consultant(name: 'Muhammad Ahsan', tag: 'Sukkur IBA Student | Web Developer'),
-    Consultant(name: 'Saeed Khan', tag: 'Sukkur IBA Student | AI Specialist',),
-    Consultant(name: 'Ahsanullah Abdullah', tag: 'Self Learner | App Developer'),
-    Consultant(name: 'Muhammad Ahsan', tag: 'Sukkur IBA Student | Web Developer'),
-    Consultant(name: 'Saeed Khan', tag: 'Sukkur IBA Student | AI Specialist',),
-    Consultant(name: 'Ahsanullah Abdullah', tag: 'Self Learner | App Developer'),
-    Consultant(name: 'Muhammad Ahsan', tag: 'Sukkur IBA Student | Web Developer'),
+    Consultant(name: 'Ghulam Sarwar', tag: 'Sukkur IBA Student | AI Specialist',
+      image: 'assets/images/gsarwar.jpeg',
+    ),
+    Consultant(name: 'Fatima Zehra Alvi', tag: 'Sukkur IBA Student | AI Specialist',
+      image: 'assets/images/zahra.jpeg',
+    ),
   ];
 
   @override

@@ -23,7 +23,7 @@ class DetailScreen extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/detail_illustration.png'),
+              image: AssetImage('assets/images/consult_bg.jpg'),
               alignment: Alignment.topCenter,
               fit: BoxFit.fitWidth,
             ),
@@ -74,9 +74,11 @@ class DetailScreen extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Image.asset(
-                            args.image,
-                            height: 120,
+                          CircleAvatar(
+                            backgroundImage : AssetImage(
+                              args.image,
+                            ),
+                            radius: 50,
                           ),
                           SizedBox(
                             width: 20,
@@ -112,8 +114,10 @@ class DetailScreen extends StatelessWidget {
                                       color: kBlueColor.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/phone.svg',
+                                    child: GestureDetector(
+                                      child: SvgPicture.asset(
+                                        'assets/icons/phone.svg',
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
@@ -163,7 +167,7 @@ class DetailScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        'Dr. Stella is the top most heart surgeon in Flower\nHospital. She has done over 100 successful sugeries\nwithin past 3 years. She has achieved several\nawards for her wonderful contribution in her own\nfield. She’s available for private consultation for\ngiven schedules.',
+                        args.description,
                         style: TextStyle(
                           height: 1.6,
                           color: kTitleTextColor.withOpacity(0.7),
