@@ -44,7 +44,7 @@ void main() {
       '/responseloading':(context) => const LoadingScreen(),
       // '/shopnow_plants' : (context) => const ShopNow(),
       // '/shopnow_pesticides' : (context) => Pesticides(),
-      '/consultdetail' : (context) => DetailScreen('Hello', 'sss', ''),
+      '/consultdetail' : (context) => const DetailScreen(),
 
     },
   ));
