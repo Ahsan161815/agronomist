@@ -1,5 +1,7 @@
 import 'package:agronomist/main.dart';
+import 'package:agronomist/pages/constants.dart';
 import 'package:agronomist/pages/consult/consult.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // import 'schedule_card.dart';
 import 'constant.dart';
@@ -7,11 +9,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DetailScreen extends StatelessWidget {
-  var _name;
-  var _description;
-  var _imageUrl;
+  const DetailScreen({Key? key}) : super(key: key);
 
-  DetailScreen(this._name, this._description, this._imageUrl);
+  // var _name;
+  // var _description;
+  // var _imageUrl;
+  //
+  // DetailScreen(this._name, this._description, this._imageUrl);
+  
+  
+  Future<void> launch_email(String email)async {
+    // const String email = 'Ahsan.161815@gmail.com';
+    String url = 'mailto:$email';
+    
+    if(await canLaunch(url)){
+      await launch(url);
+    }
+  }
+
+  Future<void> launch_phone(String phone)async {
+    // const String email = 'Ahsan.161815@gmail.com';
+    String url = 'tel://$phone';
+
+    if(await canLaunch(url)){
+      await launch(url);
+    }
+  }
+
+  Future<void> launch_whatsapp(String number) async{
+    String url = 'whatsapp://send?phone=$number';
+
+    if (await canLaunch(url)){
+      await launch(url);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +108,14 @@ class DetailScreen extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           CircleAvatar(
-                            backgroundImage : AssetImage(
-                              args.image,
-                            ),
+                            backgroundColor: pColor,
                             radius: 50,
+                            child: CircleAvatar(
+                              backgroundImage : AssetImage(
+                                args.image,
+                              ),
+                              radius: 48,
+                            ),
                           ),
                           SizedBox(
                             width: 20,
@@ -117,6 +152,9 @@ class DetailScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: GestureDetector(
+                                      onTap: (){
+                                        launch_phone(args.phone);
+                                      },
                                       child: SvgPicture.asset(
                                         'assets/icons/phone.svg',
                                       ),
@@ -131,8 +169,13 @@ class DetailScreen extends StatelessWidget {
                                       color: kYellowColor.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/chat.svg',
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        launch_email(args.email);
+                                      },
+                                      child: SvgPicture.asset(
+                                        'assets/icons/chat.svg',
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
@@ -144,8 +187,13 @@ class DetailScreen extends StatelessWidget {
                                       color: kOrangeColor.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/video.svg',
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        launch_whatsapp(args.phone);
+                                      },
+                                      child: SvgPicture.asset(
+                                        'assets/icons/video.svg',
+                                      ),
                                     ),
                                   ),
                                 ],

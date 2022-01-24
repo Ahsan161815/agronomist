@@ -147,7 +147,7 @@ class HomeBody extends StatelessWidget {
                         "are likely to grow in different regions is vital for land "
                         "use planning.",
                       fontSize: 14.0,
-                      color: kTitleTextColor,
+                      color: Colors.black45,
 
                     ),
                   ],

@@ -10,5 +10,4 @@ HexColor pColor = HexColor('#517348');
 const testcolor = Color(0xFF517348);
 const kTitleTextColor = Color(0xff1E1C61);
 
-
 const double kDefaultPadding = 20.0;

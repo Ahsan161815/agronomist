@@ -54,8 +54,13 @@ class DoctorCard extends StatelessWidget {
       child: ListTile(
         // leading: Icon(icon, size: 50,),
         leading: CircleAvatar(
-          backgroundImage: AssetImage(consultant.image),
+          // backgroundImage: AssetImage(consultant.image),
           radius: 30.0,
+          backgroundColor: pColor,
+          child: CircleAvatar(
+            radius: 26,
+            backgroundImage: AssetImage(consultant.image),
+          ),
         ),
         title: Text(
           consultant.name,

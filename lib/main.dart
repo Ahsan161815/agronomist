@@ -11,8 +11,6 @@ import 'pages/response/Response.dart';
 import 'pages/responseloading/LoadingScreen.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:agronomist/pages/consult/components/consultdetailscreen.dart';
-// import 'package:agronomist/pages/shopnow_plants//ShopNow.dart';
-// import 'package:agronomist/pages/shopnow_pesticides/Pesticides.dart';
 
 final HexColor pcolor = HexColor('#517348');
 
@@ -42,9 +40,7 @@ void main() {
       '/growth':(context) => const PlantGrowthPrediction(),
       '/response':(context) => const Response(),
       '/responseloading':(context) => const LoadingScreen(),
-      // '/shopnow_plants' : (context) => const ShopNow(),
-      // '/shopnow_pesticides' : (context) => Pesticides(),
-      '/consultdetail' : (context) => DetailScreen('Hello', 'sss', ''),
+      '/consultdetail' : (context) => const DetailScreen(),
 
     },
   ));
