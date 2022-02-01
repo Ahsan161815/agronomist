@@ -163,16 +163,16 @@ class DetailScreen extends StatelessWidget {
                                   SizedBox(
                                     width: 16,
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                      color: kYellowColor.withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: GestureDetector(
-                                      onTap: (){
-                                        launch_email(args.email);
-                                      },
+                                  GestureDetector(
+                                    onTap: (){
+                                      launch_email(args.email);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        color: kYellowColor.withOpacity(0.1),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                       child: SvgPicture.asset(
                                         'assets/icons/chat.svg',
                                       ),

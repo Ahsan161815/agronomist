@@ -14,6 +14,7 @@ class PlantRecognition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text('Plant Identification'),
       ),
       body: const ImagePickerWidget(),

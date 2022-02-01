@@ -9,8 +9,8 @@ final HexColor color = HexColor('#517348');
 class AppText extends StatelessWidget {
 
   final String text;
-  final fontSize;
-  final lspacing;
+  final double fontSize;
+  final double lspacing;
   final Color color;
 
   const AppText({

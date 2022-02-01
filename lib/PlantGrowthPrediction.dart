@@ -8,6 +8,7 @@ class PlantGrowthPrediction extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text('Crop Yield Prediction'),
       ),
       body: const ImagePickerWidget(),

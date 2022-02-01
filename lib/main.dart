@@ -41,7 +41,6 @@ void main() {
       '/response':(context) => const Response(),
       '/responseloading':(context) => const LoadingScreen(),
       '/consultdetail' : (context) => const DetailScreen(),
-
     },
   ));
 }

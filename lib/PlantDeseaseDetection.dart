@@ -11,6 +11,7 @@ class PlantDiseaseDetection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text('Plant Disease Detection'),
       ),
       body: const Body(),

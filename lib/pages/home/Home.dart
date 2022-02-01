@@ -8,6 +8,9 @@ import 'components/AppContainer.dart';
 import 'package:agronomist/components/AppText.dart';
 import 'package:agronomist/pages/shopnow_category/category.dart';
 import 'package:agronomist/pages/constants.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:agronomist/pages/nointernet/no_internet.dart';
+
 
 class Home extends StatefulWidget {
 
@@ -18,6 +21,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  var subscription;
+  bool status = false;
+
   void function1 (){
     print('My function');
   }
@@ -25,8 +32,27 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
+    if(index == 2){
+      return;
+    }
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      // Got a new connectivity status!
+      if(result == ConnectivityResult.none){
+        status = false;
+      } else {
+        status = true;
+      }
+      print(result);
+      setState(() {
+      });
     });
   }
 
@@ -34,13 +60,15 @@ class _HomeState extends State<Home> {
     const HomeBody(),
     const Category(),
     Consult(),
+    Consult(),
+    Consult(),
 
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[_selectedIndex],
+      body: status ? screens[_selectedIndex] : NoInternet(),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -54,20 +82,49 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.yellow
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.group, color: Colors.white,),
+            label: '',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.group),
             label: 'Consult us',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: 'Explore',
             backgroundColor: Colors.blue,
           ),
         ],
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
+        selectedLabelStyle: TextStyle(
+          letterSpacing: 0,
+          color: pColor.withOpacity(0.2)
+        ),
+        unselectedLabelStyle: TextStyle(
+            letterSpacing: 0,
+            color: pColor.withOpacity(0.2),
+        ),
         selectedItemColor: pcolor,
         iconSize: 26,
         unselectedItemColor: pcolor.withOpacity(0.5),
         onTap: _onItemTapped,
-        elevation: 5,
-        backgroundColor: Colors.white54,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        backgroundColor: Colors.white,
+        child: CircleAvatar(
+          backgroundColor: pColor,
+            radius: 35,
+            child: Icon(Icons.camera, size: 30, color: Colors.white,)),
+        // clipBehavior: Clip.hardEdge,
+        elevation: 0,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
@@ -84,7 +141,7 @@ class HomeBody extends StatelessWidget {
         // leading: const Icon(
         //     Icons.home,
         // ),
-        elevation: 2,
+        elevation: 0,
         title: const Text('Agronomist',
           style: TextStyle(
             fontFamily: 'poppins',
@@ -116,8 +173,8 @@ class HomeBody extends StatelessWidget {
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.white,
-                Colors.grey,
+                Color(0xfffdfbfb),
+                Color(0xffebedee),
               ],
             )
         ),
@@ -125,89 +182,80 @@ class HomeBody extends StatelessWidget {
           padding: EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            // crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(child: Container(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
                     AppText(
-                      text: "Welcome Plant Lover!",
+                      text: "Welcome!",
                       fontSize: 30.0,
-                      lspacing: 1.3,
+                      lspacing: 1,
                       color: kTitleTextColor,
                     ),
                     SizedBox(height: 10,),
-                    AppSmallText(
-                      text: "The world's rapidly rising population requires most countries"
-                    " to make the best possible use of their land resources for "
-                        "agriculture, horticulture, forestry and conservation. "
-                        "Being able to predict where and how well particular plants "
-                        "are likely to grow in different regions is vital for land "
-                        "use planning.",
-                      fontSize: 14.0,
-                      color: Colors.black45,
-
-                    ),
+                    // AppSmallText(
+                    //   text: "The world's rapidly rising population requires most countries"
+                    // " to make the best possible use of their land resources for "
+                    //     "agriculture",
+                    //   fontSize: 14.0,
+                    //   color: Colors.black45,
+                    //
+                    // ),
                   ],
                 ),
               )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              GridView.count(
+                padding: EdgeInsets.all(20),
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: AppContainer(
-                      title: 'Identify',
-                      tag: 'recognize plants',
-                      icon: Icons.camera_alt_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/recognition')
-                      },
-                    ),
+                  AppContainer(
+                    containerColor: Colors.white.withOpacity(0.9),
+                    title: 'Identify',
+                    tag: 'recognize plants',
+                    icon: Icons.camera_alt_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/recognition')
+                    },
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: AppContainer(
-                      title: 'Disease',
-                      tag: 'recognize disease',
-                      icon: Icons.medical_services_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/disease')
-                      },
-                    ),
+                  AppContainer(
+                    containerColor: Colors.white.withOpacity(0.9),
+                    title: 'Disease',
+                    tag: 'recognize disease',
+                    icon: Icons.medical_services_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/disease')
+                    },
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: AppContainer(
-                      title: 'Plant Yeild',
-                      tag: 'predict plants yeild',
-                      icon: Icons.grass_outlined,
-                      function: () => {
-                        Navigator.pushNamed(context, '/growth')
-                      },
-                    ),
+                  AppContainer(
+                    containerColor: Colors.white.withOpacity(0.9),
+                    title: 'Plant Yeild',
+                    tag: 'predict plants yeild',
+                    icon: Icons.grass_outlined,
+                    function: () => {
+                      Navigator.pushNamed(context, '/growth')
+                    },
                   ),
-                  Expanded(
-                    child: AppContainer(
-                      title: 'Extra',
-                      tag: 'extra container',
-                      bgColor: Colors.grey,
-                      // containerColor: pcolor,
-                      icon: Icons.grass_outlined,
-                      containerColor: pcolor,
-                      iconPlusText: Colors.white70,
-                      titleColor: Colors.white,
-                      // iconPlusText: Colors.white70,
-                      // titleColor: Colors.white,
-                      function: () => {
-                        Navigator.pushNamed(context, '/growth')
-                      },
-                    ),
+                  AppContainer(
+                    title: 'Extra',
+                    tag: 'extra container',
+                    bgColor: Colors.grey,
+                    // containerColor: pcolor,
+                    icon: Icons.grass_outlined,
+                    containerColor: pcolor,
+                    iconPlusText: Colors.white70,
+                    titleColor: Colors.white,
+                    // iconPlusText: Colors.white70,
+                    // titleColor: Colors.white,
+                    function: () => {
+                      Navigator.pushNamed(context, '/growth')
+                    },
                   ),
                 ],
               ),

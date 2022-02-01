@@ -21,8 +21,10 @@ class Category extends StatelessWidget {
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.white,
-                Colors.grey,
+                // Colors.white,
+                // Colors.grey,
+                Color(0xfffdfbfb),
+                Color(0xffebedee),
               ],
             )
         ),

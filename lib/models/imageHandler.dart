@@ -50,7 +50,7 @@ class ImageHandler{
 
     // string to uri
     // var uri = Uri.parse("http://10.102.130.246:5000/");
-    var uri = Uri.parse("http://agro-nomist.azurewebsites.net//");
+    var uri = Uri.parse("https://agro-nomist.azurewebsites.net//");
 
     // create multipart request
     var request = http.MultipartRequest("POST", uri);
