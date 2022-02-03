@@ -125,6 +125,11 @@ class CategoryWidget extends StatelessWidget {
 AppBar buildAppBar() {
   return AppBar(
     elevation: 0,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(20),
+        )
+    ),
     leading: IconButton(
       icon: SvgPicture.asset("assets/icons/menu.svg",color: Colors.white,),
       onPressed: () {},

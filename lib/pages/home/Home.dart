@@ -69,58 +69,70 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: status ? screens[_selectedIndex] : NoInternet(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Colors.green,
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag_sharp),
-              label: 'Shop Now',
-              backgroundColor: Colors.yellow
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group, color: Colors.white,),
-            label: '',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Consult us',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: 'Explore',
-            backgroundColor: Colors.blue,
-          ),
-        ],
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        selectedLabelStyle: TextStyle(
-          letterSpacing: 0,
-          color: pColor.withOpacity(0.2)
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(50),
         ),
-        unselectedLabelStyle: TextStyle(
+        child: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+                backgroundColor: Colors.green,
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag_sharp),
+                label: 'Shop Now',
+                backgroundColor: Colors.yellow
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.group, color: Colors.white,),
+              label: '',
+              backgroundColor: Colors.blue,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.group),
+              label: 'Consult us',
+              backgroundColor: Colors.blue,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              label: 'Explore',
+              backgroundColor: Colors.blue,
+            ),
+          ],
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          selectedLabelStyle: TextStyle(
             letterSpacing: 0,
-            color: pColor.withOpacity(0.2),
+            color: pColor.withOpacity(0.2)
+          ),
+          unselectedLabelStyle: TextStyle(
+              letterSpacing: 0,
+              color: pColor.withOpacity(0.2),
+          ),
+          selectedItemColor: pcolor,
+          iconSize: 26,
+          unselectedItemColor: pcolor.withOpacity(0.5),
+          onTap: _onItemTapped,
+          elevation: 0,
+          // fixedColor: Colors.white,
+          backgroundColor: Colors.white,
         ),
-        selectedItemColor: pcolor,
-        iconSize: 26,
-        unselectedItemColor: pcolor.withOpacity(0.5),
-        onTap: _onItemTapped,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.large(
         onPressed: (){},
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         child: CircleAvatar(
-          backgroundColor: pColor,
-            radius: 35,
-            child: Icon(Icons.camera, size: 30, color: Colors.white,)),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.purple,
+          radius: 32,
+          child: CircleAvatar(
+            backgroundColor: pColor,
+              radius: 22,
+              child: Icon(
+                Icons.camera, size: 30, color: Colors.white,)),
+        ),
         // clipBehavior: Clip.hardEdge,
         elevation: 0,
       ),
@@ -141,6 +153,11 @@ class HomeBody extends StatelessWidget {
         // leading: const Icon(
         //     Icons.home,
         // ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          )
+        ),
         elevation: 0,
         title: const Text('Agronomist',
           style: TextStyle(
@@ -163,7 +180,8 @@ class HomeBody extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/cropslist');
             },
-          ), //IconButton
+          ),
+          SizedBox(width: 5,),//IconButton
         ],
         shadowColor: Colors.transparent,
       ),
@@ -207,58 +225,63 @@ class HomeBody extends StatelessWidget {
                   ],
                 ),
               )),
-              GridView.count(
-                padding: EdgeInsets.all(20),
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                mainAxisSpacing: 5,
-                crossAxisSpacing: 5,
-                children: [
-                  AppContainer(
-                    containerColor: Colors.white.withOpacity(0.9),
-                    title: 'Identify',
-                    tag: 'recognize plants',
-                    icon: Icons.camera_alt_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/recognition')
-                    },
-                  ),
-                  AppContainer(
-                    containerColor: Colors.white.withOpacity(0.9),
-                    title: 'Disease',
-                    tag: 'recognize disease',
-                    icon: Icons.medical_services_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/disease')
-                    },
-                  ),
-                  AppContainer(
-                    containerColor: Colors.white.withOpacity(0.9),
-                    title: 'Plant Yeild',
-                    tag: 'predict plants yeild',
-                    icon: Icons.grass_outlined,
-                    function: () => {
-                      Navigator.pushNamed(context, '/growth')
-                    },
-                  ),
-                  AppContainer(
-                    title: 'Extra',
-                    tag: 'extra container',
-                    bgColor: Colors.grey,
-                    // containerColor: pcolor,
-                    icon: Icons.grass_outlined,
-                    containerColor: pcolor,
-                    iconPlusText: Colors.white70,
-                    titleColor: Colors.white,
-                    // iconPlusText: Colors.white70,
-                    // titleColor: Colors.white,
-                    function: () => {
-                      Navigator.pushNamed(context, '/growth')
-                    },
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GridView.count(
+                  primary: false,
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  mainAxisSpacing: 5,
+                  crossAxisSpacing: 5,
+                  // childAspectRatio: 1.1,
+                  children: [
+                    AppContainer(
+                      containerColor: Colors.white.withOpacity(0.9),
+                      title: 'Identify',
+                      tag: 'recognize plants',
+                      icon: Icons.camera_alt_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/recognition')
+                      },
+                    ),
+                    AppContainer(
+                      containerColor: Colors.white.withOpacity(0.9),
+                      title: 'Disease',
+                      tag: 'recognize disease',
+                      icon: Icons.medical_services_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/disease')
+                      },
+                    ),
+                    AppContainer(
+                      containerColor: Colors.white.withOpacity(0.9),
+                      title: 'Plant Yeild',
+                      tag: 'predict plants yeild',
+                      icon: Icons.grass_outlined,
+                      function: () => {
+                        Navigator.pushNamed(context, '/growth')
+                      },
+                    ),
+                    AppContainer(
+                      title: 'Extra',
+                      tag: 'extra container',
+                      bgColor: Colors.grey,
+                      // containerColor: pcolor,
+                      icon: Icons.grass_outlined,
+                      containerColor: pcolor,
+                      iconPlusText: Colors.white70,
+                      titleColor: Colors.white,
+                      // iconPlusText: Colors.white70,
+                      // titleColor: Colors.white,
+                      function: () => {
+                        Navigator.pushNamed(context, '/growth')
+                      },
+                    ),
+                  ],
+                ),
               ),
+              SizedBox(height: 20,)
             ],
           ),
         ),

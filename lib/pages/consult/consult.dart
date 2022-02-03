@@ -104,6 +104,12 @@ class Consult extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(20),
+            )
+        ),
         backgroundColor: pColor,
         title: const Text(
           'Consult From Our Team',
@@ -115,13 +121,25 @@ class Consult extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: c_list.length,
-          itemBuilder: (BuildContext context, int index) {
-            return DoctorCard(
-              consultant: c_list[index],
-            );
-          },
+        child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Color(0xfffdfbfb),
+                  Color(0xffebedee),
+                ],
+              )
+          ),
+          child: ListView.builder(
+            itemCount: c_list.length,
+            itemBuilder: (BuildContext context, int index) {
+              return DoctorCard(
+                consultant: c_list[index],
+              );
+            },
+          ),
         ),
       ),
     );
