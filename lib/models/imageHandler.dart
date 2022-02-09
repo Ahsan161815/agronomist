@@ -50,6 +50,7 @@ class ImageHandler{
 
     // string to uri
     // var uri = Uri.parse("http://10.102.130.246:5000/");
+    // var uri = Uri.parse("http://10.102.130.47:5000/");
     var uri = Uri.parse("https://agro-nomist.azurewebsites.net//");
 
     // create multipart request
@@ -75,12 +76,14 @@ class ImageHandler{
     var rdata = await response.stream.toBytes();
     // print(response.toString());
     // print(response.stream.);
-    var rstring = String.fromCharCodes(rdata);
+   //  var rstring = String.fromCharCodes(rdata);
     // print(jsonDecode(rstring));
 
-    CustomTranslator t = CustomTranslator();
-    var translated = await t.translate(rstring);
-    var to_str = translated.toString();
+    var to_str = String.fromCharCodes(rdata);
+
+    // CustomTranslator t = CustomTranslator();
+    // var translated = await t.translate(rstring);
+    // var to_str = translated.toString();
 
     // print(to_str);
 

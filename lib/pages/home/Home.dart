@@ -1,6 +1,8 @@
 import 'package:agronomist/components/AppSmallText.dart';
 import 'package:agronomist/main.dart';
 import 'package:agronomist/pages/consult/consult.dart';
+// import 'package:agronomist/pages/custom_camera/custom_camera.dart';
+// import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -121,7 +123,12 @@ class _HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton.large(
-        onPressed: (){},
+        onPressed: () async {
+          // WidgetsFlutterBinding.ensureInitialized();
+          // // Obtain a list of the available cameras on the device.
+          // final cameras = await availableCameras();
+          // runApp(MyApp(cameras: cameras));
+        },
         backgroundColor: Colors.transparent,
         child: CircleAvatar(
           backgroundColor: Colors.white,
