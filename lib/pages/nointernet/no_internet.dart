@@ -1,4 +1,4 @@
-import 'package:agronomist/components/AppText.dart';
+import 'package:agronomist/pages/widgets/AppText.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

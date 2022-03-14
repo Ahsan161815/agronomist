@@ -1,6 +1,6 @@
 import 'package:agronomist/main.dart';
 
-import 'pages/pickimage/ImagePickerWidget.dart';
+import '../pickimage/ImagePickerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:agronomist/pages/pickimage/ImagePickerWidget.dart';
 

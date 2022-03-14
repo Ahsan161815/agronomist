@@ -1,11 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:async';
-import 'dart:convert';
 import 'package:path/path.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:agronomist/models/translator.dart';
 import 'package:image_cropper/image_cropper.dart';
 
 
@@ -18,7 +17,7 @@ class ImageHandler{
   // picks image and returns image file
   Future pickImage(ImageSource source) async {
     try {
-      _image = await ImagePicker().pickImage(source: source);
+      _image = await ImagePicker().pickImage(source: source, ); //maxHeight: 150, maxWidth: 150
       if (_image == null) return;
 
        // f_image = File(_image!.path);
@@ -50,8 +49,9 @@ class ImageHandler{
 
     // string to uri
     // var uri = Uri.parse("http://10.102.130.246:5000/");
-    // var uri = Uri.parse("http://10.102.130.47:5000/");
-    var uri = Uri.parse("https://agro-nomist.azurewebsites.net//");
+    // var uri = Uri.parse("http://10.102.130.30:5000/");
+    var uri = Uri.parse("http://192.168.1.5:5000/");
+    // var uri = Uri.parse("https://agro-nomist.azurewebsites.net//");
 
     // create multipart request
     var request = http.MultipartRequest("POST", uri);
@@ -74,6 +74,7 @@ class ImageHandler{
     //
     // });
     var rdata = await response.stream.toBytes();
+
     // print(response.toString());
     // print(response.stream.);
    //  var rstring = String.fromCharCodes(rdata);
@@ -85,15 +86,17 @@ class ImageHandler{
     // var translated = await t.translate(rstring);
     // var to_str = translated.toString();
 
-    // print(to_str);
+    // print(jsonDecode(to_str)['name']);
+    // print(jsonDecode(to_str)['description']);
 
     Map toMap = {};
 
-    var striped = to_str.split(":");
+    // var striped = to_str.split(":");
     // print(striped);
-    toMap['name'] = striped[0];
-    toMap['value'] = striped[1];
-    toMap['body'] = striped[2];
+    toMap['name'] = jsonDecode(to_str)['name'];
+    toMap['season'] = jsonDecode(to_str)['season'];
+    toMap['region'] = jsonDecode(to_str)['region'];
+    toMap['description'] = jsonDecode(to_str)['description'];
 
     print(toMap);
     // print(translated);

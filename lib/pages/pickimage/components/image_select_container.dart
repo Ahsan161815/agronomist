@@ -15,7 +15,7 @@ class ImageSelectContainer extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           child: TextButton.icon(
             onPressed: (){
-              pickimagefunction(ImageSource.camera);
+              pickimagefunction(ImageSource.camera,);
             },
             icon: const Icon(Icons.camera_alt,
               size: 30,

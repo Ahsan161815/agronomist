@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:agronomist/models/imageHandler.dart';
+import 'package:agronomist/controller/imageHandler.dart';
 import 'package:agronomist/pages/pickimage/components/image_select_container.dart';
 
 

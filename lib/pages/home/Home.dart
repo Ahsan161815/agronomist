@@ -1,17 +1,18 @@
-import 'package:agronomist/components/AppSmallText.dart';
 import 'package:agronomist/main.dart';
 import 'package:agronomist/pages/consult/consult.dart';
-// import 'package:agronomist/pages/custom_camera/custom_camera.dart';
-// import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import '../pickimage/ImagePickerWidget.dart';
 import 'components/AppContainer.dart';
-import 'package:agronomist/components/AppText.dart';
+import 'package:agronomist/pages/widgets/AppText.dart';
 import 'package:agronomist/pages/shopnow_category/category.dart';
 import 'package:agronomist/pages/constants.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:agronomist/pages/nointernet/no_internet.dart';
+import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
+import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
+import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 
 
 class Home extends StatefulWidget {
@@ -69,81 +70,88 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: status ? screens[_selectedIndex] : NoInternet(),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(50),
-        ),
-        child: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-                backgroundColor: Colors.green,
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag_sharp),
-                label: 'Shop Now',
-                backgroundColor: Colors.yellow
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.group, color: Colors.white,),
-              label: '',
-              backgroundColor: Colors.blue,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.group),
-              label: 'Consult us',
-              backgroundColor: Colors.blue,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              label: 'Explore',
-              backgroundColor: Colors.blue,
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _selectedIndex,
-          selectedLabelStyle: TextStyle(
-            letterSpacing: 0,
-            color: pColor.withOpacity(0.2)
-          ),
-          unselectedLabelStyle: TextStyle(
-              letterSpacing: 0,
-              color: pColor.withOpacity(0.2),
-          ),
-          selectedItemColor: pcolor,
-          iconSize: 26,
-          unselectedItemColor: pcolor.withOpacity(0.5),
-          onTap: _onItemTapped,
-          elevation: 0,
-          // fixedColor: Colors.white,
-          backgroundColor: Colors.white,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton.large(
-        onPressed: () async {
-          // WidgetsFlutterBinding.ensureInitialized();
-          // // Obtain a list of the available cameras on the device.
-          // final cameras = await availableCameras();
-          // runApp(MyApp(cameras: cameras));
-        },
-        backgroundColor: Colors.transparent,
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.purple,
-          radius: 32,
-          child: CircleAvatar(
-            backgroundColor: pColor,
-              radius: 22,
+    return SafeArea(
+      child: Scaffold(
+        body: status ? screens[_selectedIndex] : NoInternet(),
+        bottomNavigationBar: CurvedNavBar(
+          actionButton: CurvedActionBar(
+            onTab: (value) {
+              /// perform action here
+
+              // Navigator.pushNamed(context, '/ipick');
+            },
+            activeIcon: Container(
+              padding: EdgeInsets.all(15),
+              decoration:
+              BoxDecoration(color: Colors.white, shape: BoxShape.circle),
               child: Icon(
-                Icons.camera, size: 30, color: Colors.white,)),
+                Icons.camera_rounded,
+                size: 35,
+                color: pColor,
+              ),
+            ),
+            inActiveIcon: Container(
+              padding: EdgeInsets.all(15),
+              decoration:
+              BoxDecoration(color: pColor, shape: BoxShape.circle),
+              child: Icon(
+                Icons.camera_rounded,
+                size: 35,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          appBarItems: [
+            FABBottomAppBarItem(
+                activeIcon: Icon(
+                  Icons.home,
+                  color: pColor,
+                ),
+                inActiveIcon: Icon(
+                  Icons.home,
+                  color: pcolor.withOpacity(0.3),
+                ),
+                text: 'Home'),
+            FABBottomAppBarItem(
+                activeIcon: Icon(
+                  Icons.shopping_cart,
+                  color: pColor,
+                ),
+                inActiveIcon: Icon(
+                  Icons.shopping_cart,
+                  color: pcolor.withOpacity(0.3),
+                ),
+                text: 'Shop'),
+            FABBottomAppBarItem(
+                activeIcon: Icon(
+                  Icons.group,
+                  color: pColor,
+                ),
+                inActiveIcon: Icon(
+                  Icons.group,
+                  color: pcolor.withOpacity(0.3),
+                ),
+                text: 'Consult'),
+            FABBottomAppBarItem(
+                activeIcon: Icon(
+                  Icons.explore,
+                  color: pColor,
+                ),
+                inActiveIcon: Icon(
+                  Icons.explore,
+                  color: pcolor.withOpacity(0.3),
+                ),
+                text: 'Explore'),
+          ],
+          bodyItems: [
+            screens[0],
+            screens[1],
+            screens[2],
+            screens[3],
+          ],
+          actionBarView: const ImagePickerWidget(),
         ),
-        // clipBehavior: Clip.hardEdge,
-        elevation: 0,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
