@@ -8,6 +8,8 @@ This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
+Agronomist is an AI based App to Identify Plants, their Deseases and Crop Yeild Pridction using AI ML.
+
 ![agronomist.png](https://github.com/Ahsan161815/agronomist/blob/master/agronomist.png?raw=true)
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
